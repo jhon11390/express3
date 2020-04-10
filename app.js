@@ -2,9 +2,9 @@ const express = require('express');
 const app = express();
 
 
-app.get('/', (req, res) => {
-    if(req.query.nombre){
-        res.send('<h1>Hola '+ req.query.nombre +'!</h1>');
+app.get('/makers/:nombre', (req, res) => {
+    if(req.params.nombre){
+        res.send('<h1>Hola '+ req.params.nombre[0].toUpperCase() + req.params.nombre.slice(1) +'!</h1>');
     } else {
         res.send('<h1>Hola desconocido!</h1>');
     }
